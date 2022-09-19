@@ -24,17 +24,17 @@ io.on("connection", (socket) => {
   info(
     "[" + socket.id + "] new connection",
     socket.request.connection.remoteAddress
-    );
-    
+  );
+
   socket.on("message", (data) => {
-    log(`message from ${date.num}`)
+    log(`message from ${date.num}`);
     socket.broadcast.emit("message", data);
-  })
+  });
 
   socket.on("UPDATE", (data) => {
     log(`request update for person ${data}`);
-    socket.broadcast.emit("UPDATE", data)
-  })
+    socket.broadcast.emit("UPDATE", data);
+  });
 
   //xu ly chung
   socket.on("reconnect", function () {
@@ -49,5 +49,5 @@ io.on("connection", (socket) => {
 });
 
 server.listen(3599, () => {
-  log("server is listening on port 3600");
+  log("server is listening on port 3599");
 });
